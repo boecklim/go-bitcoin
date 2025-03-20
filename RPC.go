@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"bitbucket.org/simon_ordish/cryptolib"
-	cache "github.com/patrickmn/go-cache"
+	"github.com/patrickmn/go-cache"
 	"golang.org/x/sync/singleflight"
 )
 
@@ -1091,5 +1091,10 @@ func (b *Bitcoind) DumpPrivKey(address string) (string, error) {
 
 func (b *Bitcoind) SetAccount(address, account string) error {
 	_, err := b.call("setaccount", []interface{}{address, account})
+	return err
+}
+
+func (b *Bitcoind) InvalidateBlock(invHash string) error {
+	_, err := b.call("invalidateblock", []interface{}{invHash})
 	return err
 }
