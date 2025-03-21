@@ -1,6 +1,6 @@
 module github.com/ordishs/go-bitcoin
 
-go 1.24
+go 1.23.5
 
 require (
 	bitbucket.org/simon_ordish/cryptolib v1.0.48
